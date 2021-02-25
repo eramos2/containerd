@@ -79,7 +79,7 @@ sudo systemd-run -p Delegate=yes -p KillMode=process /usr/local/bin/containerd
 In the containerd config file you will find settings for persistent and runtime storage locations as well as grpc, debug, and metrics addresses for the various APIs.
 
 There are a few settings that are important for ops.
-The first setting is the `oom_score`.  Because containerd will be managing multiple containers, we need to ensure that containers are killed before the containerd daemon reaches an out of memory condition.
+The first setting is the `oom_score`.  Because containerd will be managing multiple containers, we need to ensure that containers are killed before the containerd daemon gets into an out of memory condition.
 We also do not want to make containerd unkillable, but we want to lower its score to the level of other system daemons.
 
 containerd also exports its own metrics as well as container level metrics via the prometheus metrics format.
